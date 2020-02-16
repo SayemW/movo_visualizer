@@ -1,0 +1,24 @@
+{
+  "name": "movo_visualizer",
+  "version": "1.0.0",
+  "description": "Visualizer for the Kinova Movo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SayemW/movo_visualizer.git"
+  },
+  "author": "SayemW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SayemW/movo_visualizer/issues"
+  },
+  "homepage": "https://github.com/SayemW/movo_visualizer#readme",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.1",
+    "three": "^0.113.2",
+    "urdf-loader": "^0.8.0"
+  }
+}
