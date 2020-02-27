@@ -1,27 +1,10 @@
 // create the sliders
 viewer.addEventListener("urdf-processed", () => {
     const r = viewer.robot;
+    console.log(r);
     Object.keys(r.joints)
-        .sort((a, b) => {
-            const da = a
-                .split(/[^\d]+/g)
-                .filter(v => !!v)
-                .pop();
-            const db = b
-                .split(/[^\d]+/g)
-                .filter(v => !!v)
-                .pop();
-
-            if (da !== undefined && db !== undefined) {
-                const delta = parseFloat(da) - parseFloat(db);
-                if (delta !== 0) return delta;
-            }
-
-            if (a > b) return 1;
-            if (b > a) return -1;
-            return 0;
-        })
         .map(key => r.joints[key])
+        .filter(joint => joint.limit.upper != 0)
         .forEach(joint => {
             const li = document.createElement("li");
             li.innerHTML = `

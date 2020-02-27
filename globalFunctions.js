@@ -7,8 +7,6 @@ customElements.define("urdf-viewer", URDFViewer);
 /* globals viewer THREE */
 
 // declare these globally for the sake of the example.
-// Hack to make the build work with webpack for now.
-// TODO: Remove this once modules or parcel is being used
 viewer = document.querySelector("urdf-viewer");
 
 const limitsToggle = document.getElementById("ignore-joint-limits");
