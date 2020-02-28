@@ -1,9 +1,8 @@
 {
-  "name": "urdf-loader",
-  "version": "0.7.3",
-  "description": "URDF Loader for THREE.js and webcomponent viewer",
-  "main": "umd/URDFLoader.js",
-  "module": "src/URDFLoader.js",
+  "name": "movo_visualizer",
+  "version": "1.0.0",
+  "description": "Visualizer for Kinova MOVO",
+  "main": "index.html",
   "scripts": {
     "start": "concurrently --kill-others \"rollup -c -w\" \"cd .. && static-server\"",
     "build": "rollup -c && cd example && webpack",
@@ -14,19 +13,8 @@
   "files": [
     "src/*",
     "umd/*",
-    "example/index.js",
-    "example/dragAndDrop.js",
-    "example/styles.css"
   ],
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gkjohnson/urdf-loaders.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gkjohnson/urdf-loaders/issues"
-  },
-  "homepage": "https://github.com/gkjohnson/urdf-loaders#readme",
   "keywords": [
     "javascript",
     "threejs",
