@@ -227,6 +227,14 @@ input:focus {
     overflow: hidden;
 }
 
+#status {
+    font-family: "Roboto";
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 30px;
+    font-weight: 100;
+}
+
 /* toggle controls */
 .toggle {
     padding-left: 25px;

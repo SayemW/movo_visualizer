@@ -4,7 +4,6 @@ var DEG2RAD = Math.PI / 180;
 window.animToggle = document.getElementById("do-animate");
 
 const lerp = (from, to, ratio) => from + (to - from) * ratio;
-
 const updateAngles = () => {
     if (!viewer.setAngle) return;
 
@@ -12,28 +11,26 @@ const updateAngles = () => {
     const resetangles = viewer.angles;
     for (const name in resetangles) resetangles[name] = 0;
     viewer.setAngles(resetangles);
-    
-    console.log("updateAngles");
-    
-    // animate the legs
-    // const time = Date.now() / 3e2;
-    // for (let i = 1; i <= 6; i++) {
-    //     const offset = (i * Math.PI) / 3;
-    //     const ratio = Math.max(0, Math.sin(time + offset));
 
-    //     viewer.setAngle(`HP${i}`, lerp(30, 0, ratio) * DEG2RAD);
-    //     viewer.setAngle(`KP${i}`, lerp(90, 150, ratio) * DEG2RAD);
-    //     viewer.setAngle(`AP${i}`, lerp(-30, -60, ratio) * DEG2RAD);
+    // add animation
+    var newAngles = viewer.angles;
+   
+    const time = Date.now() / 3e2;
+    const offset = (Math.PI) / 3;
+    const ratio = Math.max(0, Math.sin(time + offset));
 
-    //     viewer.setAngle(`TC${i}A`, lerp(0, 0.065, ratio));
-    //     viewer.setAngle(`TC${i}B`, lerp(0, 0.065, ratio));
+    // D Animation
+    // viewer.setAngle(`tilt_joint`, lerp(0, -62.4, ratio) * DEG2RAD);
+    // viewer.setAngle(`right_shoulder_pan_joint`, lerp(0, -13.5, ratio) * DEG2RAD);
+    // viewer.setAngle(`right_elbow_joint`, lerp(0, -129.6, ratio) * DEG2RAD);
+    // viewer.setAngle(`right_shoulder_lift_joint`, lerp(0, 8, ratio) * DEG2RAD);
 
-    //     viewer.setAngle(`W${i}`, window.performance.now() * 0.001);
-    // }
+    // viewer.setAngle(`left_shoulder_pan_joint`, lerp(0, -28, ratio) * DEG2RAD);
+    // viewer.setAngle(`left_shoulder_lift_joint`, lerp(0, 119.2, ratio) * DEG2RAD);
+    // viewer.setAngle(`left_arm_half_joint`, lerp(0, -55, ratio) * DEG2RAD);
 };
 
 const updateLoop = () => {
-    console.log("updateLoop");
     if (animToggle.classList.contains("checked")) {
         updateAngles();
     }

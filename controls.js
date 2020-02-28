@@ -1,7 +1,7 @@
 // create the sliders
 viewer.addEventListener("urdf-processed", () => {
+
     const r = viewer.robot;
-    console.log(r);
     Object.keys(r.joints)
         .map(key => r.joints[key])
         .filter(joint => joint.limit.upper != 0)
