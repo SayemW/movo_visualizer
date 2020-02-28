@@ -46,10 +46,6 @@
             </ul>
             <div id="controls" class="hidden">
                 <div id="toggle-controls"></div>
-                <div>
-                    Drag and drop a set of URDF files! <br />
-                    (Chrome Only)
-                </div>
                 <div id="ignore-joint-limits" class="toggle">
                     Ignore Joint Limits
                 </div>
@@ -70,9 +66,10 @@
         </div>
         <urdf-viewer up="+Z" display-shadow tabindex="0"></urdf-viewer>
         <script src="./src/animate.js"></script>
+        <script src="./src/controls.js"></script>
+        <script src="./src/debug.js"></script>
         <script src="./src/dragAndDrop.js"></script>
         <script src="./src/globalFunctions.js"></script>
-        <script src="./src//controls.js"></script>
-        <script src="./src//debug.js"></script>
+        <script src="./src/subscribers.js"></script>
     </body>
 </html>

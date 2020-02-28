@@ -3,19 +3,26 @@ var ros = new ROSLIB.Ros({
     url: "ws://localhost:9090"
 });
 
-// Test ROS Connection
-ros.on("connection", function() {
-    document.getElementById("robot_staus").innerHTML("Kinova MOVO - Connected");
-});
+window.onload(() => {
+    // Test ROS Connection
+    ros.on("connection", function() {
+        document
+            .getElementById("robot_staus")
+            .innerHTML("Kinova MOVO - Connected");
+    });
 
-ros.on("error", function(error) {
-    document.getElementById("robot_staus").innerHTML("Kinova MOVO - Disconnected");
-});
+    ros.on("error", function(error) {
+        document
+            .getElementById("robot_staus")
+            .innerHTML("Kinova MOVO - Disconnected");
+    });
 
-ros.on("close", function() {
-    document.getElementById("robot_staus").innerHTML("Kinova MOVO - Disconnected");
+    ros.on("close", function() {
+        document
+            .getElementById("robot_staus")
+            .innerHTML("Kinova MOVO - Disconnected");
+    });
 });
-
 
 //Set of subscribers for the MOVO
 // Head Control Message
