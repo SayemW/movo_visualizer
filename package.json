@@ -12,7 +12,7 @@
   },
   "files": [
     "src/*",
-    "umd/*",
+    "umd/*"
   ],
   "license": "Apache-2.0",
   "keywords": [
