@@ -9,10 +9,6 @@ customElements.define("urdf-viewer", URDFViewer);
 // declare these globally
 viewer = document.querySelector("urdf-viewer");
 
-// Joint angles
-var tilt_joint = 0;
-var pan_joint = 0;
-
 const limitsToggle = document.getElementById("ignore-joint-limits");
 const upSelect = document.getElementById("up-select");
 const sliderList = document.querySelector("#controls ul");

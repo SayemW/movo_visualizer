@@ -18,6 +18,15 @@ ros.on("close", function() {
     status.innerText = "Disconnected";
 });
 
+// Joint angles
+var tilt_joint = 0;
+var pan_joint = 0;
+
+var linear_joint = 0;
+
+var right_arm_joints;
+var left_arm_joints;
+
 //Set of subscribers for the MOVO
 // Head Control Message
 movo_head_cmd_subscriber = new ROSLIB.Topic({
@@ -39,7 +48,29 @@ movo_linear_actuator_cmd_subscriber = new ROSLIB.Topic({
 });
 
 movo_linear_actuator_cmd_subscriber.subscribe(function(message) {
-    console.log(message);
+    linear_joint = message.desired_position_m;
+});
+
+// Right arm controls
+movo_right_arm_joint_states_subsciber = new ROSLIB.Topic({
+    ros: ros,
+    name: "movo/right_arm/joint_states",
+    messageType: "sensor_msgs/JointState"
+})
+
+movo_right_arm_joint_states_subsciber.subscribe(function(message) {
+    right_arm_joints = message;
+});
+
+// Left arm controls
+movo_left_arm_joint_states_subsciber = new ROSLIB.Topic({
+    ros: ros,
+    name: "movo/left_arm/joint_states",
+    messageType: "sensor_msgs/JointState"
+})
+
+movo_left_arm_joint_states_subsciber.subscribe(function(message) {
+    left_arm_joints = message;
 });
 
 // Gripper Control Message
