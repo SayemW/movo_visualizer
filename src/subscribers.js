@@ -3,25 +3,19 @@ var ros = new ROSLIB.Ros({
     url: "ws://localhost:9090"
 });
 
-window.onload(() => {
-    // Test ROS Connection
-    ros.on("connection", function() {
-        document
-            .getElementById("robot_staus")
-            .innerText("Kinova MOVO - Connected");
-    });
+const status = document.getElementById("status");
 
-    ros.on("error", function(error) {
-        document
-            .getElementById("robot_staus")
-            .innerText("Kinova MOVO - Disconnected");
-    });
+// Test ROS Connection
+ros.on("connection", function() {
+    status.innerText = "Connected";
+});
 
-    ros.on("close", function() {
-        document
-            .getElementById("robot_staus")
-            .innerText("Kinova MOVO - Disconnected");
-    });
+ros.on("error", function(error) {
+    status.innerText = "Disconnected";
+});
+
+ros.on("close", function() {
+    status.innerText = "Disconnected";
 });
 
 //Set of subscribers for the MOVO
