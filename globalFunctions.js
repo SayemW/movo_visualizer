@@ -6,8 +6,12 @@ customElements.define("urdf-viewer", URDFViewer);
 
 /* globals viewer THREE */
 
-// declare these globally for the sake of the example.
+// declare these globally
 viewer = document.querySelector("urdf-viewer");
+
+// Joint angles
+var tilt_joint = 0;
+var pan_joint = 0;
 
 const limitsToggle = document.getElementById("ignore-joint-limits");
 const upSelect = document.getElementById("up-select");
