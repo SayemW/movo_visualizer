@@ -8,19 +8,19 @@ window.onload(() => {
     ros.on("connection", function() {
         document
             .getElementById("robot_staus")
-            .innerHTML("Kinova MOVO - Connected");
+            .innerText("Kinova MOVO - Connected");
     });
 
     ros.on("error", function(error) {
         document
             .getElementById("robot_staus")
-            .innerHTML("Kinova MOVO - Disconnected");
+            .innerText("Kinova MOVO - Disconnected");
     });
 
     ros.on("close", function() {
         document
             .getElementById("robot_staus")
-            .innerHTML("Kinova MOVO - Disconnected");
+            .innerText("Kinova MOVO - Disconnected");
     });
 });
 
