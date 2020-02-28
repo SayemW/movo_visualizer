@@ -1,2 +1,2 @@
-# movo_visualizer
- 
+# Movo_visualizer
+ Visualizer for the Kinova Movo
