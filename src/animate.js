@@ -38,10 +38,8 @@ const updateAngles = () => {
     viewer.setAngle("linear_joint", linear_joint);
 
     // Arms
-    if (right_arm_joints && left_arm_joints) {
-        set_arm_joints(right_arm_joints);
-        set_arm_joints(left_arm_joints);
-    }
+    if (right_arm_joints) set_arm_joints(right_arm_joints);
+    if (left_arm_joints) set_arm_joints(left_arm_joints);
 
     // Gripper
 
