@@ -1,8 +1,8 @@
 /* globals URDFViewer */
-customElements.define("urdf-viewer", URDFViewer);
+// customElements.define("urdf-viewer", URDFViewer);
 
 // If we want to control the joints on the model using a mouse
-// customElements.define("urdf-viewer", URDFManipulator);
+customElements.define("urdf-viewer", URDFManipulator);
 
 /* globals viewer THREE */
 
