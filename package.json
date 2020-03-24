@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.4.3",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.1.0",
     "eslint": "^5.16.0",
     "jest": "^25.1.0",
     "jest-cli": "^25.1.0",
@@ -41,8 +41,8 @@
     "rollup": "^0.66.6",
     "script-loader": "^0.7.0",
     "static-server": "^3.0.0",
-    "three": "^0.101.1",
-    "threejs-model-loader": "0.0.1",
+    "three": "^0.114.0",
+    "threejs-model-loader": "^0.1.0",
     "typescript": "^3.8.3",
     "wc-loader": "^1.1.12",
     "webpack": "^4.42.0"
