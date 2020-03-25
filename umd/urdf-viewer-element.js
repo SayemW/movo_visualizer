@@ -74,7 +74,7 @@
             this.urlModifierFunc = null;
 
             // Scene setup
-            const scene = new THREE.Scene();
+            const scene = new Physijs.Scene();
 
             const ambientLight = new THREE.HemisphereLight(this.ambientColor, '#000');
             ambientLight.groundColor.lerp(ambientLight.color, 0.5);
@@ -152,6 +152,7 @@
                             this._updateEnvironment();
                         }
 
+                        this.scene.simulate();
                         this.renderer.render(scene, camera);
                         this._dirty = false;
 

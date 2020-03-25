@@ -18,6 +18,9 @@
         <script src="../node_modules/three/examples/js/loaders/STLLoader.js"></script>
         <script src="../node_modules/three/examples/js/loaders/ColladaLoader.js"></script>
         <script src="../node_modules/threejs-model-loader/ModelLoader.js"></script>
+        <!-- physi.js-->
+        <script src="physijs/physi.js"></script>
+        <script src="physijs/physijsSetup.js"></script>
         <!-- urdf Loader-->
         <script src="../umd/URDFLoader.js"></script>
         <script src="../umd/urdf-viewer-element.js"></script>
@@ -40,7 +43,7 @@
                     urdf="./urdf/movo_description/urdf/movo.urdf"
                     color="#FFB300"
                 >
-                    Kinova MOVO 
+                    Kinova MOVO
                 </li>
                 <span id="status">Disconnected</span>
             </ul>
@@ -65,7 +68,9 @@
             </div>
         </div>
         <urdf-viewer up="+Z" display-shadow tabindex="0"></urdf-viewer>
+        <!-- MOVO -->
         <script src="./src/globalFunctions.js"></script>
+        <script src="./src/collisions.js"></script>
         <script src="./src/animate.js"></script>
         <script src="./src/controls.js"></script>
         <script src="./src/debug.js"></script>

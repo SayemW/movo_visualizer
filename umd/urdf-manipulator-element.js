@@ -36,9 +36,7 @@
             this.highlightMaterial =
                 new THREE.MeshPhongMaterial({
                     shininess: 10,
-                    color: this.highlightColor,
-                    emissive: this.highlightColor,
-                    emissiveIntensity: 0.25,
+                    emissiveIntensity: 0.25
                 });
 
             const el = this.renderer.domElement;
@@ -122,7 +120,6 @@
 
                             c.__origMaterial = c.material;
                             c.material = this.highlightMaterial;
-
                         }
 
                     }
