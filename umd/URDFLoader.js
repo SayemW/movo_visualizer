@@ -676,7 +676,7 @@
 
                                     } else if (obj) {
 
-                                        if (obj instanceof Physijs.ConvexMesh) {
+                                        if (obj instanceof THREE.Mesh) {
 
                                             obj.material = material;
 
@@ -711,7 +711,7 @@
 
                         } else if (geoType === 'box') {
 
-                            primitiveModel = new Physijs.ConvexMesh();
+                            primitiveModel = new THREE.Mesh();
                             primitiveModel.geometry = new THREE.BoxBufferGeometry(1, 1, 1);
                             primitiveModel.material = material;
 
@@ -728,7 +728,7 @@
 
                         } else if (geoType === 'sphere') {
 
-                            primitiveModel = new Physijs.ConvexMesh();
+                            primitiveModel = new Three.Mesh();
                             primitiveModel.geometry = new THREE.SphereBufferGeometry(1, 30, 30);
                             primitiveModel.material = material;
 
@@ -745,7 +745,7 @@
 
                         } else if (geoType === 'cylinder') {
 
-                            primitiveModel = new Physijs.ConvexMesh();
+                            primitiveModel = new THREE.Mesh();
                             primitiveModel.geometry = new THREE.CylinderBufferGeometry(1, 1, 1, 30);
                             primitiveModel.material = material;
 
@@ -796,7 +796,7 @@
 
                 const loader = new STLLoader_js.STLLoader(manager);
                 loader.load(path, geom => {
-                    const mesh = new Physijs.ConvexMesh(geom, new THREE.MeshPhongMaterial());
+                    const mesh = new THREE.Mesh(geom, new THREE.MeshPhongMaterial());
                     done(mesh);
                 });
 
