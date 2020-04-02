@@ -194,13 +194,18 @@
                 camera,
                 renderer.domElement
             );
-            controls.rotateSpeed = 2.0;
-            controls.zoomSpeed = 5;
-            controls.panSpeed = 2;
-            controls.enableZoom = true;
-            controls.enableDamping = false;
+
+            controls.enablePan = false;
+            controls.enableZoom = true; 
+            controls.enableDamping = true;
+            controls.minPolarAngle = 0.8;
+            controls.maxPolarAngle = 2.4;
+            controls.dampingFactor = 0.07;
+            controls.rotateSpeed = 0.7;
+            controls.zoomSpeed = 2;
             controls.maxDistance = 50;
             controls.minDistance = 0.25;
+        
             controls.addEventListener("change", () => this.recenter());
 
             this.scene = scene;

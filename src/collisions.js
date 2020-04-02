@@ -10,4 +10,11 @@ viewer.addEventListener("urdf-processed", () => {
     // Get all meshes
     const meshes = [];
     const robot = viewer.robot;
+
+    robot.traverse( m => {
+        if (m.name == "node") {
+            //console.log(m);
+            //m.material = collisionHilightMaterial;
+        }
+    });
 });
