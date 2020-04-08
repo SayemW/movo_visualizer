@@ -1,24 +1,33 @@
-viewer.addEventListener("urdf-processed", () => {
-    // Animate camera
-    var camera = viewer.camera;
-    
-    // Smooth lookAt
-    tweenRotation(new THREE.Quaternion(), 1);
-});
+// Animate camera
+var camera = viewer.camera;
+var controls = viewer.controls;
+var animationFrameID;
 
-function tweenRotation(targetQuaternion, duration){
-    //tweens between zero and 1 values along Quaternion's SLERP method (http://threejs.org/docs/#Reference/Math/Quaternion)
+function tweenCamera() {
+    controls.enabled = false;
+    var duration = 2500;
+    var position = new THREE.Vector3().copy(camera.position);
+    var targetPosition = new THREE.Vector3(1.4, 1.5, -1.2);
 
-    qm = new THREE.Quaternion(); //initiate an empty Qt to be filled by the .slerp function
-    curQuaternion = viewer.camera.quaternion; //the starting point of your rotation
+    var tween = new TWEEN.Tween(position)
+        .to(targetPosition, duration)
+        .easing(TWEEN.Easing.Back.InOut)
+        .onUpdate(function() {
+            camera.position.copy(position);
+            camera.lookAt(controls.target);
+        })
+        .onComplete(function() {
+            camera.position.copy(targetPosition);
+            camera.lookAt(controls.target);
+            controls.enabled = true;
+            cancelAnimationFrame(animationFrameID);
+        })
+        .start();
 
-    var tween = new TWEEN.Tween({t:0}).to({t:1}, duration)
-        .easing( TWEEN.Easing.Quadratic.InOut )
-        .onUpdate(function(){
-            THREE.Quaternion.slerp(curQuaternion, targetQuaternion, qm, this.t);
-            qm.normalize();
-            group.rotation.setFromQuaternion(qm);
-    });
+    animateCamera();
+}
 
-   tween.start();
+function animateCamera() {
+    animationFrameID = requestAnimationFrame(animateCamera);
+    TWEEN.update();
 }

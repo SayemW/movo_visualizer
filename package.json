@@ -60,7 +60,6 @@
     "webpack": "^4.42.1"
   },
   "dependencies": {
-    "@tweenjs/tween.js": "^18.5.0",
-    "tweenjs": "^1.0.2"
+    "@tweenjs/tween.js": "^18.5.0"
   }
 }
