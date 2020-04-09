@@ -198,8 +198,6 @@
             controls.enablePan = false;
             controls.enableZoom = true; 
             controls.enableDamping = true;
-            controls.minPolarAngle = 0.8;
-            controls.maxPolarAngle = 2.4;
             controls.dampingFactor = 0.07;
             controls.rotateSpeed = 0.7;
             controls.zoomSpeed = 2;

@@ -4,22 +4,25 @@ viewer.addEventListener("urdf-processed", () => {
         shininess: 10,
         emissiveIntensity: 0.25,
         color: new THREE.Color(0xff0000),
-        emissive: new THREE.Color(0xff0000)
+        emissive: new THREE.Color(0xff0000),
     });
 
     const camera = viewer.camera;
     const raycaster = new THREE.Raycaster();
     const el = viewer.renderer.domElement;
     const robot = viewer.robot;
+    const controls = viewer.controls;
 
     var mouse = new THREE.Vector2();
     var cameraTargetPosition = new THREE.Vector3(1.4, 1.5, -1.2);
-    var collisionPosition = new THREE.Vector3();
+
+    var normalMatrix = new THREE.Matrix3(); // create once and reuse
+    var worldNormal = new THREE.Vector3(); // create once and reuse
 
     // Perform start-up animation
-    tweenCamera(collisionPosition, cameraTargetPosition);
+    tweenCamera(controls.target, cameraTargetPosition);
 
-    el.addEventListener("mousedown", event => {
+    el.addEventListener("mousedown", (event) => {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -27,10 +30,13 @@ viewer.addEventListener("urdf-processed", () => {
 
         // find objects intersecting the picking ray
         var intersects = raycaster.intersectObjects(robot.children, true);
-        
-        for (var i = 0; i < Math.min(1, intersects.length); i++) {
-            collisionPosition.copy(intersects[i].point);
-            tweenCamera(collisionPosition, null);
+
+        if (intersects.length != 0) {
+            // Convert face normal to world
+            normalMatrix.getNormalMatrix(intersects[0].object.matrixWorld);
+            worldNormal.copy(intersects[0].face.normal).applyMatrix3(normalMatrix).normalize();
+
+            tweenCamera(intersects[0].point, null, worldNormal);
         }
     });
 });
