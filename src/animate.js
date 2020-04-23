@@ -41,23 +41,23 @@ const updateAngles = () => {
     if (right_arm_joints) set_arm_joints(right_arm_joints);
     if (left_arm_joints) set_arm_joints(left_arm_joints);
 
-    // Gripper
+    // DEMO ANIMATION
+    /*
+    viewer.setAngle(`tilt_joint`, lerp(0, -62.4, ratio) * DEG2RAD);
+    viewer.setAngle(
+        `right_shoulder_pan_joint`,
+        lerp(0, -13.5, ratio) * DEG2RAD
+    );
+    viewer.setAngle(`right_elbow_joint`, lerp(0, -129.6, ratio) * DEG2RAD);
+    viewer.setAngle(`right_shoulder_lift_joint`, lerp(0, 8, ratio) * DEG2RAD);
 
-    // D Animation
-    // viewer.setAngle(`tilt_joint`, lerp(0, -62.4, ratio) * DEG2RAD);
-    // viewer.setAngle(
-    //     `right_shoulder_pan_joint`,
-    //     lerp(0, -13.5, ratio) * DEG2RAD
-    // );
-    // viewer.setAngle(`right_elbow_joint`, lerp(0, -129.6, ratio) * DEG2RAD);
-    // viewer.setAngle(`right_shoulder_lift_joint`, lerp(0, 8, ratio) * DEG2RAD);
-
-    // viewer.setAngle(`left_shoulder_pan_joint`, lerp(0, -28, ratio) * DEG2RAD);
-    // viewer.setAngle(
-    //     `left_shoulder_lift_joint`,
-    //     lerp(0, 119.2, ratio) * DEG2RAD
-    // );
-    // viewer.setAngle(`left_arm_half_joint`, lerp(0, -55, ratio) * DEG2RAD); 
+    viewer.setAngle(`left_shoulder_pan_joint`, lerp(0, -28, ratio) * DEG2RAD);
+    viewer.setAngle(
+        `left_shoulder_lift_joint`,
+        lerp(0, 119.2, ratio) * DEG2RAD
+    );
+    viewer.setAngle(`left_arm_half_joint`, lerp(0, -55, ratio) * DEG2RAD); 
+    */
 
     if (animToggle.classList.contains("checked")) {
         requestAnimationFrame(updateAngles);

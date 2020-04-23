@@ -19,6 +19,11 @@ viewer.addEventListener("urdf-processed", () => {
     var normalMatrix = new THREE.Matrix3(); // create once and reuse
     var worldNormal = new THREE.Vector3(); // create once and reuse
 
+    /**
+     * DEMO CODE FOR COLLISIONS
+     * THE CAMERA WILL MOVE TO VIEW THE POINT THAT THE MOUSE IS CLICKED AT
+     */
+    /*
     // Perform start-up animation
     tweenCamera(controls.target, cameraTargetPosition);
 
@@ -39,4 +44,5 @@ viewer.addEventListener("urdf-processed", () => {
             tweenCamera(intersects[0].point, null, worldNormal);
         }
     });
+    */
 });
