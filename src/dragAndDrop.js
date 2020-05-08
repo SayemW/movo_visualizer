@@ -1,5 +1,10 @@
 /* globals animToggle viewer setColor */
 
+/**
+ * Drag and drop a robot's description (urdf + meshes) to load it into 
+ * the viewer. Tested in Chrome.
+ */
+
 // Converts a datatransfer structer into an object with all paths and files
 // listed out. Returns a promise that resolves with the file structure.
 function dataTransferToFiles(dataTransfer) {

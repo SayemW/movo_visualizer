@@ -27,7 +27,7 @@ var linear_joint = 0;
 var right_arm_joints;
 var left_arm_joints;
 
-//Set of subscribers for the MOVO
+//Set of subscribers for the Kinova - MOVO
 // Head Control Message
 movo_head_cmd_subscriber = new ROSLIB.Topic({
     ros: ros,

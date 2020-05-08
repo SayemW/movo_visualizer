@@ -1,3 +1,6 @@
+// TODO : Make an interface so that some external program can
+// feed the visualizer with collision information.
+
 viewer.addEventListener("urdf-processed", () => {
     // Collision highlight material
     const collisionHilightMaterial = new THREE.MeshPhongMaterial({
@@ -23,7 +26,7 @@ viewer.addEventListener("urdf-processed", () => {
      * DEMO CODE FOR COLLISIONS
      * THE CAMERA WILL MOVE TO VIEW THE POINT THAT THE MOUSE IS CLICKED AT
      */
-    /*
+    
     // Perform start-up animation
     tweenCamera(controls.target, cameraTargetPosition);
 
@@ -44,5 +47,4 @@ viewer.addEventListener("urdf-processed", () => {
             tweenCamera(intersects[0].point, null, worldNormal);
         }
     });
-    */
 });

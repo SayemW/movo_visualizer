@@ -1,4 +1,6 @@
 /* globals URDFViewer */
+
+// If we want to disable mouse controls
 // customElements.define("urdf-viewer", URDFViewer);
 
 // If we want to control the joints on the model using a mouse

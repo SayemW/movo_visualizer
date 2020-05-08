@@ -1,0 +1,32 @@
+{
+    "topics": [
+        {
+            "joint_names": ["tilt_joint", "pan_joint"],
+            "subscriber_info": {
+                "name": "movo/head/cmd",
+                "messageType": "movo_msgs/PanTiltCmd"
+            }
+        },
+        {
+            "joint_names": ["linear_joint"],
+            "subscriber_info": {
+                "name": "movo/linear_actuator_cmd",
+                "messageType": "movo_msgs/LinearActuatorCmd"
+            }
+        },
+        {
+            "joint_names": [],
+            "subscriber_info": {
+                "name": "movo/right_arm/joint_states",
+                "messageType": "sensor_msgs/JointState"
+            }
+        },
+        {
+            "joint_names": [],
+            "subscriber_info": {
+                "name": "movo/left_arm/joint_states",
+                "messageType": "sensor_msgs/JointState"
+            }
+        }
+    ]
+}
