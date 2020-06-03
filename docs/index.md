@@ -22,7 +22,7 @@ The first step of the project was to get the robot model into the browser. I ini
 
 When looking up ways to load a robot model into a web browser two libraries popped up: Ros3djs ([wiki.ros.org/ros3djs/](http://wiki.ros.org/ros3djs/)) &amp; urdf-loder ([npmjs.com/package/urdf-loader](https://www.npmjs.com/package/urdf-loader)). Out of these two urdf-loader was newer and more actively maintained. It was also easier to use the urdf-loader to load the robot model which is why I chose it over ros3djs. I took cues from the demo provided in urdf-loader and designed a similar interface for the WebMovo.
 
-![Alt Text](asstes/movo)
+![](asstes/movo.png)
 
 The application requires that the robot description provided contains the robot meshes and the urdf files. Generally, the urdf files are converted to xacro format as it allows more code reuse when describing the robot model. The xacro files need to be converted to urdf. I struggled to convert xacro to urdf on a Windows machine. It is very easy to do this conversion on a linux machine (it&#39;s just executing one command) ([answers.ros.org/question/202162/urdf-or-xacro/](https://answers.ros.org/question/202162/urdf-or-xacro/)).
 
@@ -36,7 +36,8 @@ TODO: I am still not sure what message is posted to a ROS topic when the robot a
 
 ## Developing an animation system
 
-With the real time visualization part done I want to focus on features that would make the Web MOVO useful as a simulator. I began building a simple animation system where key-frames were specified and the robot would interpolate through those frames. I began with trying to get this to work for only a single frame and then add on additional functionality like chaining animations together. ![](RackMultipart20200603-4-plzlh2_html_21932dbd43d31a62.gif)
+With the real time visualization part done I want to focus on features that would make the Web MOVO useful as a simulator. I began building a simple animation system where key-frames were specified and the robot would interpolate through those frames. I began with trying to get this to work for only a single frame and then add on additional functionality like chaining animations together.
+![](asstes/movo_anim.gif)
 
 Creating an animation system using just three.js was much harder than I thought. I ran into a lot of trouble trying to get the robot model to do what I wanted. Even trying to get simple animations working involved a lot of code and the entire process became very messy. I looked for solutions online and this led me to finding tween.js ([github.com/tweenjs/tween.js/](https://github.com/tweenjs/tween.js/)).
 
@@ -60,13 +61,13 @@ Having an external program provide collision information meant that the Web MOVO
 
 The first part of implementing this feature was moving the camera around. Again to get this to happen using just three.js turned out to be messy and upon reading online forums I decided to use tween.js for camera movement ([github.com/tweenjs/tween.js/](https://github.com/tweenjs/tween.js/)). Tweenjs is a really useful library and provides a nice way to describe the animation you want. I decided that as a starting point the camera movement should be restricted along a sphere around the robot model. Using tweenjs I got the camera to smoothly move along the bounding sphere.
 
-![](RackMultipart20200603-4-plzlh2_html_2e4bb4944ac5d7d.gif)
+![](asstes/movo_cam1.gif)
 
 ## Finding the best place for the camera
 
 Having camera controls I needed to figure out what is the best place to move the camera to. The most important requirement for the camera is that there must be an unobscured view from the camera to the point of collision. Based on this idea I used the raycaster class to find candidate positions on the bounding sphere. The best candidate positions (based on my preference) were either normal or tangent to the direction of collision. Therefore, the further the candidate points were from the normal or tangent the more they were penalized. Several other parameters can be added that define what a good camera position is. The way I tested this was by simulating a collision by clicking on the robot and checking to see if the camera moves to show this position. There is a pretty glaring problem with this approach. For me to click on a point on the robot I must already have line of sight to this point. Therefore, I couldn&#39;t test many situations that would probably occur in the real world. Nonetheless, I believe that the foundations I built are pretty solid on can be added upon in the future.
 
-## ![](RackMultipart20200603-4-plzlh2_html_382805f6853f3fbd.gif)
+![](asstes/movo_cam2.gif)
 
 TODO: LookAt. The lookAt function by default looks at the center of the robot. For some reason when using tweenjs to animate the camera keeps switching between looking at the center of the robot and at the point of collision. I believe that this problem is caused by the urdf-viewer which forces the camera to always look at the center of the robot. The simple fix is to change the setting in the urdf-viewer, I think it would be better if this could be fixed without making any changes to the external library to ensure compatibility with future versions.
 
