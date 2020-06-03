@@ -2,6 +2,10 @@
 
 Visualizer for the Kinova MOVO
 
+## Developer documentation
+
+Google Docs : https://docs.google.com/document/d/1Dl9Am4bisEmTIxTb1iUfbNSjM2M4MvKFVCMGJRPlLgc/edit?usp=sharing
+
 ## Setup
 
 Run npm install

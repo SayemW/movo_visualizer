@@ -44,7 +44,8 @@ const keyFrameAnimation = () => {
     const ratio = Math.max(0, Math.sin(time + offset));
 
     // DEMO ANIMATION
-    viewer.setAngle(`tilt_joint`, lerp(0, 23.4, ratio) * DEG2RAD);
+    viewer.setAngle(`tilt_joint`, lerp(0, 0.32, ratio) * DEG2RAD);
+    viewer.setAngle(`linear_joint`, lerp(0, 12.3, ratio) * DEG2RAD);
     viewer.setAngle(
         `right_shoulder_pan_joint`,
         lerp(0, 37.2, ratio) * DEG2RAD
