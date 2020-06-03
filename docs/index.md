@@ -1,8 +1,6 @@
 # Web MOVO
 
-Sayem Wani
-CS 699
-10th May 2020
+Sayem Wani | CS 699 | 10th May 2020
 
 ## Purpose:
 
