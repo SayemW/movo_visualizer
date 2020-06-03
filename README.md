@@ -4,7 +4,7 @@ Visualizer for the Kinova MOVO
 
 ## Developer documentation
 
-Google Docs : https://docs.google.com/document/d/1Dl9Am4bisEmTIxTb1iUfbNSjM2M4MvKFVCMGJRPlLgc/edit?usp=sharing
+https://sayemw.github.io/movo_visualizer/
 
 ## Setup
 
