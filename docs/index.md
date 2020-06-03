@@ -22,7 +22,7 @@ The first step of the project was to get the robot model into the browser. I ini
 
 When looking up ways to load a robot model into a web browser two libraries popped up: Ros3djs ([wiki.ros.org/ros3djs/](http://wiki.ros.org/ros3djs/)) &amp; urdf-loder ([npmjs.com/package/urdf-loader](https://www.npmjs.com/package/urdf-loader)). Out of these two urdf-loader was newer and more actively maintained. It was also easier to use the urdf-loader to load the robot model which is why I chose it over ros3djs. I took cues from the demo provided in urdf-loader and designed a similar interface for the WebMovo.
 
-![](RackMultipart20200603-4-plzlh2_html_3969957f866a22c3.png)
+![Alt Text](asstes/movo)
 
 The application requires that the robot description provided contains the robot meshes and the urdf files. Generally, the urdf files are converted to xacro format as it allows more code reuse when describing the robot model. The xacro files need to be converted to urdf. I struggled to convert xacro to urdf on a Windows machine. It is very easy to do this conversion on a linux machine (it&#39;s just executing one command) ([answers.ros.org/question/202162/urdf-or-xacro/](https://answers.ros.org/question/202162/urdf-or-xacro/)).
 
